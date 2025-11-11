@@ -1,0 +1,94 @@
+
+
+#include <iostream>
+
+class Time {
+    int hour;
+    int min;
+    int sec;
+public:
+
+
+
+    Time(){
+         hour =0;
+        min=0;
+         sec = 0;
+    }
+
+    Time(int hour1, int min1, int sec1 =0){
+        hour = hour1;
+        min = min1;
+        sec = sec1;
+    }
+
+
+    bool protect(int hour, int min, int sec) {
+        if ((hour > 23) || (min > 59) || (sec > 59)) {
+            return false;
+        }
+        this->hour = hour;
+        this->min = min;
+        this->sec = sec;
+        return true;
+    }
+
+    void add_timeSec() {
+        this->sec++;
+    }
+    void add_timeMin() {
+        this->min++;
+    }
+
+    void setting() {
+       
+
+
+        if (sec > 59) {
+            this->min++;
+            this->sec %= 60;
+
+        }
+
+        if  (min > 59) {
+            this->hour++;
+            this->min %= 60;
+            
+        }
+        
+      
+    }
+
+
+
+
+    void display() {
+        std::cout << std::endl;
+        std::cout <<  hour<<" hour\n";
+        std::cout << min << " minute\n";
+        std::cout << sec << " second\n";
+    }
+
+
+
+};
+int main()
+{
+    
+    Time t;
+    
+    int hour;
+    int min;
+    int sec;
+    std::cout << " enter hour, minute and second\n";
+    std::cin >> hour >> min >> sec;
+    t.protect( hour, min, sec);
+    t.display();
+    
+    t.add_timeSec();
+    t.add_timeMin();
+    t.setting();
+    t.display();
+    
+}
+
