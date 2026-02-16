@@ -52,8 +52,7 @@ public:
 			}
 		}
 
-		delete pstream;
-		pstream = nullptr;
+	
 	}
 	~ReadFile() { close(); }
 };
