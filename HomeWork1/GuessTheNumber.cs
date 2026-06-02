@@ -22,30 +22,43 @@ namespace WpfApp1
     {
         private string textResume;
        private int attempts =0;
-        private int min = 0;
-        private int max = 2000;
+        private int min = 1;
+        private int max = 2001;
         private bool playAgain = true;
         public MainWindow()
         {
             InitializeComponent();
 
             StartGame();
-            while (playAgain)
-            {
-                MidGame();
-                PlayAgain();
-            }
-           
+          
+         
         }
 
 
 
         private void StartGame()
         {
-            MessageBox.Show("Задумайте число от 1 до 2000.\nНажмите OK, когда будете готовы.",
-                 "Угадай число",
-                 MessageBoxButton.OK,
-                 MessageBoxImage.Information);
+            while (true)
+            {
+                playAgain = true;
+                min = 1;
+                max = 2001;
+                attempts = 0;
+                MessageBox.Show("Задумайте число от 1 до 2000.\nНажмите OK, когда будете готовы.",
+                     "Угадай число",
+                     MessageBoxButton.OK,
+                     MessageBoxImage.Information);
+
+                while (playAgain == true)
+                {
+                    MidGame();
+
+                }
+                if (PlayAgain() == false)
+                {
+                    break;
+                }
+            }
         }
 
         private void MidGame()
@@ -68,7 +81,7 @@ namespace WpfApp1
                            MessageBoxButton.OK,
                            MessageBoxImage.Information);
 
-               
+                playAgain = false;
             }
 
             else if (result == MessageBoxResult.No)
@@ -90,10 +103,14 @@ namespace WpfApp1
                   max = number - 1;
                 }
             }
+            else if (result == MessageBoxResult.Cancel) 
+            {
+                playAgain = false; 
+            }
         }
 
 
-        private void PlayAgain()
+        private bool PlayAgain()
         {
             MessageBoxResult playChoice = MessageBox.Show(
                        "Хотите сыграть еще раз?",
@@ -102,12 +119,10 @@ namespace WpfApp1
                        MessageBoxImage.Question);
 
             if (playChoice == MessageBoxResult.Yes) {
-            playAgain = true;
+           return true;
             }
-            else if(playChoice == MessageBoxResult.No)
-            {
-                playAgain = false;
-            }
+            
+            return false;
         }
     }
 }
