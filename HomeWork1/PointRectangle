@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace WpfApp1
+{
+    /// <summary>
+    /// Логика взаимодействия для MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        private string textResume;
+        public MainWindow()
+        {
+            // MouseLeftButtonDown = "Window_MouseLeftButtonDown"
+            InitializeComponent();
+            this.MouseLeftButtonDown += Window_MouseLeftButtonDown;
+
+            this.MouseRightButtonDown += Window_MouseRightButtonDown;
+
+            this.MouseMove += MainWindow_MouseMove;
+        }
+
+        private void MainWindow_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point movePos = e.GetPosition(this);
+            this.Title = $"X = {movePos.X}, Y = {movePos.Y}";
+        }
+
+        private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Title = $"Ширина = {this.ActualWidth}, Высота = {this.ActualHeight}";
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+            {
+                this.Close();
+                return;
+            }
+                double borderUp = 10;
+            double borderDown = this.ActualHeight - 10;
+            double borderLeft = 10;
+            double borderRight = this.ActualWidth - 10;
+            Point clickPos = e.GetPosition(this);
+            if (clickPos.X < borderLeft || clickPos.X > borderRight || clickPos.Y < borderUp || clickPos.Y > borderDown) { MessageBox.Show("Снаружи прямоугольника"); }
+            else if (Math.Abs(clickPos.X - borderLeft) < 0.001 ||
+              Math.Abs(clickPos.X - borderRight) < 0.001 ||
+              Math.Abs(clickPos.Y - borderUp) < 0.001 ||
+              Math.Abs(clickPos.Y - borderDown) < 0.001) { MessageBox.Show("На границе прямоугольника"); }
+            else
+            {
+                MessageBox.Show("Внутри прямоугольника");
+            }
+        }
+    }
+}
