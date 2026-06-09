@@ -31,49 +31,48 @@
             this.label2 = new Label();
             this.SuspendLayout();
 
-            // comboBoxProducts
+            
             this.comboBoxProducts.FormattingEnabled = true;
             this.comboBoxProducts.Location = new Point(12, 30);
             this.comboBoxProducts.Size = new Size(200, 23);
 
-            // label1
+           
             this.label1.Text = "Товар:";
             this.label1.Location = new Point(12, 10);
             this.label1.Size = new Size(100, 17);
 
-            // txtPrice
             this.txtPrice.Location = new Point(220, 30);
             this.txtPrice.Size = new Size(80, 23);
             this.txtPrice.ReadOnly = true;
 
-            // label2
+        
             this.label2.Text = "Цена:";
             this.label2.Location = new Point(220, 10);
             this.label2.Size = new Size(80, 17);
 
-            // btnAddToCart
+         
             this.btnAddToCart.Text = "Добавить";
             this.btnAddToCart.Location = new Point(12, 60);
             this.btnAddToCart.Size = new Size(100, 30);
             this.btnAddToCart.Click += btnAddToCart_Click;
 
-            // listBoxCart
+          
             this.listBoxCart.Location = new Point(12, 100);
             this.listBoxCart.Size = new Size(288, 130);
 
-            // lblTotal
+           
             this.lblTotal.Text = "Итого: 0 руб.";
             this.lblTotal.Location = new Point(12, 240);
             this.lblTotal.Size = new Size(200, 20);
             this.lblTotal.Font = new Font("Segoe UI", 10, FontStyle.Bold);
 
-            // btnOpenForm2
+            
             this.btnOpenForm2.Text = "Товары";
             this.btnOpenForm2.Location = new Point(200, 60);
             this.btnOpenForm2.Size = new Size(100, 30);
             this.btnOpenForm2.Click += btnOpenForm2_Click;
 
-            // Form1
+            
             this.Text = "Продажи";
             this.ClientSize = new Size(315, 280);
             this.Controls.Add(this.comboBoxProducts);
