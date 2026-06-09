@@ -31,47 +31,46 @@
             this.label2 = new Label();
             this.SuspendLayout();
 
-            // label1
+            
             this.label1.Text = "Название:";
             this.label1.Location = new Point(12, 10);
             this.label1.Size = new Size(100, 17);
 
-            // txtName
+            
             this.txtName.Location = new Point(12, 30);
             this.txtName.Size = new Size(180, 23);
 
-            // label2
+            
             this.label2.Text = "Цена:";
             this.label2.Location = new Point(200, 10);
             this.label2.Size = new Size(80, 17);
 
-            // txtPrice
+            
             this.txtPrice.Location = new Point(200, 30);
             this.txtPrice.Size = new Size(80, 23);
 
-            // btnAdd
+            
             this.btnAdd.Text = "Добавить";
             this.btnAdd.Location = new Point(12, 60);
             this.btnAdd.Size = new Size(100, 30);
             this.btnAdd.Click += btnAdd_Click;
 
-            // btnDelete
+            
             this.btnDelete.Text = "Удалить";
             this.btnDelete.Location = new Point(120, 60);
             this.btnDelete.Size = new Size(100, 30);
             this.btnDelete.Click += btnDelete_Click;
 
-            // listBoxProducts
+            
             this.listBoxProducts.Location = new Point(12, 100);
             this.listBoxProducts.Size = new Size(268, 150);
 
-            // btnClose
+          
             this.btnClose.Text = "Закрыть";
             this.btnClose.Location = new Point(200, 260);
             this.btnClose.Size = new Size(80, 30);
             this.btnClose.Click += btnClose_Click;
 
-            // Form2
             this.Text = "Редактирование товаров";
             this.ClientSize = new Size(295, 310);
             this.Controls.Add(this.txtName);
